@@ -47,7 +47,7 @@ def overlay(title, results, inference_time, inference_rate, layout):
         doc += svg.Rect(x=0, y=0, width=text_width, height=text_height,
                         transform='translate(%s, %s) scale(-1,-1)' % (ox2, oy2),
                         _class='back')
-        t = svg.Text(y=oy2, fill='red', text_anchor='end')
+        t = svg.Text(y=oy2, fill='white', text_anchor='end')
         for i, line in enumerate(lines):
             dy = '-1em' if i > 0 else '0em'
             t += svg.TSpan(line, x=ox2, dy=dy)
