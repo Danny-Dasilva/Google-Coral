@@ -78,8 +78,7 @@ def top_results(window, top_k):
     for results in window:
         for label, score in results:
             total_scores[label] += score
-    # logger.info(str(top_k))
-    # print(str(top_k))
+    
     return sorted(total_scores.items(), key=lambda kv: kv[1], reverse=True)[:top_k]
 
 def accumulator(size, top_k):
@@ -91,6 +90,7 @@ def accumulator(size, top_k):
 def print_results(inference_rate, results):
     print('\nInference (rate=%.2f fps):' % inference_rate)
     for label, score in results:
+        print('  %s, score=%.2f' % (label, score))
         print('  %s, score=%.2f' % (label, score))
         
 
@@ -119,13 +119,13 @@ def render_gen(args):
         if draw_overlay:
             start = time.monotonic()
             results = engine.ClassifyWithInputTensor(tensor, threshold=args.threshold, top_k=args.top_k)
-            print(results)
+            
             inference_time = time.monotonic() - start
 
             results = [(labels[i], score) for i, score in results]
-            print(results)
+            
             results = acc.send(results)
-            print(results)
+            
             if args.print:
                 print_results(inference_rate, results)
 
