@@ -6,8 +6,8 @@
 #   --model ${TEST_DATA}/mobilenet_v2_1.0_224_inat_bird_quant.tflite \
 #   --labels ${TEST_DATA}/inat_bird_labels.txt
 
-from .apps import run_server
-from .classify import add_render_gen_args, render_gen
+from apps import run_server
+from classify import add_render_gen_args, render_gen
 
 
 def main():
