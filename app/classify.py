@@ -121,10 +121,11 @@ def render_gen(args):
             results = engine.ClassifyWithInputTensor(tensor, threshold=args.threshold, top_k=args.top_k)
             
             inference_time = time.monotonic() - start
-
+            
             results = [(labels[i], score) for i, score in results]
+            b = [(score) for i, score in results]
             a = results
-            b = .21
+            
             results = acc.send(results)
             
             if args.print:
@@ -132,7 +133,8 @@ def render_gen(args):
 
             title = titles[engine]
             output = overlay(title, results, inference_time, inference_rate, layout)
-            print(type(a))
+            print(a)
+            print(b)
         else:
             output = None
 
