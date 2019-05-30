@@ -136,6 +136,7 @@ def render_gen(args):
             output = overlay(title, results, inference_time, inference_rate, layout)
             print(a)
             print(b)
+            print(res)
             
         else:
             output = None
