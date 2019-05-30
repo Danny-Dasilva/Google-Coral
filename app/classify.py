@@ -20,8 +20,8 @@ from apps import run_app
 
 logger = logging.getLogger(__name__)
 
-CSS_STYLES = str(svg.CssStyle({'.back': svg.Style(fill='black',
-                                                  stroke='black',
+CSS_STYLES = str(svg.CssStyle({'.back': svg.Style(fill='red',
+                                                  stroke='red',
                                                   stroke_width='1em')}))
 
 def size_em(length):

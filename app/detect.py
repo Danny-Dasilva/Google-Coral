@@ -25,8 +25,8 @@ import svg
 import utils
 from apps import run_app
 
-CSS_STYLES = str(svg.CssStyle({'.back': svg.Style(fill='red',
-                                                  stroke='red',
+CSS_STYLES = str(svg.CssStyle({'.back': svg.Style(fill='black',
+                                                  stroke='black',
                                                   stroke_width='1em'),
                                '.bbox': svg.Style(fill_opacity=0.0,
                                                   stroke_width='2px')}))
