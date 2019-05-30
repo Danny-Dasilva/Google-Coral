@@ -76,7 +76,8 @@ def top_results(window, top_k):
     for results in window:
         for label, score in results:
             total_scores[label] += score
-    print(top_k)
+    with open('filename.txt', 'w') as f:
+        f.write(str(top_k))
     return sorted(total_scores.items(), key=lambda kv: kv[1], reverse=True)[:top_k]
 
 def accumulator(size, top_k):
