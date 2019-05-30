@@ -10,6 +10,7 @@ import argparse
 import collections
 import itertools
 import time
+import logging
 
 from edgetpu.classification.engine import ClassificationEngine
 
@@ -17,6 +18,7 @@ from . import svg
 from . import utils
 from .apps import run_app
 
+logger = logging.getLogger(__name__)
 
 CSS_STYLES = str(svg.CssStyle({'.back': svg.Style(fill='black',
                                                   stroke='black',
@@ -76,8 +78,7 @@ def top_results(window, top_k):
     for results in window:
         for label, score in results:
             total_scores[label] += score
-    with open('filename.txt', 'w') as f:
-        f.write(str(top_k))
+    logger.info(str(top_k))
     return sorted(total_scores.items(), key=lambda kv: kv[1], reverse=True)[:top_k]
 
 def accumulator(size, top_k):
