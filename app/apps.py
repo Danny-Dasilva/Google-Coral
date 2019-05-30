@@ -6,7 +6,7 @@ from camera import make_camera
 from gstreamer import Display, run_gen
 from streaming.server import StreamingServer
 
-from . import svg
+import svg
 
 EMPTY_SVG = str(svg.Svg())
 
