@@ -123,7 +123,8 @@ def render_gen(args):
             inference_time = time.monotonic() - start
 
             results = [(labels[i], score) for i, score in results]
-            print(results)
+            servo_action = results
+
             results = acc.send(results)
             
             if args.print:
@@ -131,6 +132,8 @@ def render_gen(args):
 
             title = titles[engine]
             output = overlay(title, results, inference_time, inference_rate, layout)
+            if servo_action > .21:
+                print(servo_action)
         else:
             output = None
 
