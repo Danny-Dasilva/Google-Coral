@@ -138,7 +138,7 @@ def render_gen(args):
             output = overlay(title, results, inference_time, inference_rate, layout)
             # print(a)
             if b > 0.20:
-                print(a, "aHHHHHHHHHHHHHHHHHHH")
+                print(b, "aHHHHHHHHHHHHHHHHHHH")
             else:
                 print(b,"threshold not met")
             
