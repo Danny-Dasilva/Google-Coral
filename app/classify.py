@@ -124,7 +124,7 @@ def render_gen(args):
             
             results = [(labels[i], score) for i, score in results]
             # b =  [(score) for i, score in results]
-            b =  [int(score) for i, score in results]
+            b =  [(score) for score in results]
             a = results
             
             results = acc.send(results)
