@@ -86,8 +86,10 @@ def accumulator(size, top_k):
 
 def print_results(inference_rate, results):
     print('\nInference (rate=%.2f fps):' % inference_rate)
-    print(results)
+    print('\nInference (rate=%.2f fps):' % inference_rate)
+    
     for label, score in results:
+        print('  %s, score=%.2f' % (label, score))
         print('  %s, score=%.2f' % (label, score))
 
 def render_gen(args):

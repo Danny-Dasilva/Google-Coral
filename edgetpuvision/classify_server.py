@@ -11,7 +11,7 @@ from edgetpuvision.classify import add_render_gen_args, render_gen, print_result
 
 def main():
     run_server(add_render_gen_args, render_gen)
-    print(print_results)
+    
 
 if __name__ == '__main__':
     main()
