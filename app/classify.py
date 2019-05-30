@@ -135,7 +135,7 @@ def render_gen(args):
             title = titles[engine]
             output = overlay(title, results, inference_time, inference_rate, layout)
             print(a)
-            print(type(b))
+            print(b)
             
         else:
             output = None
