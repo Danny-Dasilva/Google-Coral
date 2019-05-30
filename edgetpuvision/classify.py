@@ -103,6 +103,7 @@ def render_gen(args):
 
     labels = utils.load_labels(args.labels)
     draw_overlay = True
+    print("labels", labels)
 
     yield utils.input_image_size(engine)
 
@@ -117,7 +118,9 @@ def render_gen(args):
             inference_time = time.monotonic() - start
 
             results = [(labels[i], score) for i, score in results]
+            print("results1", results)
             results = acc.send(results)
+            print("results2", results)
             if args.print:
                 print_results(inference_rate, results)
 
