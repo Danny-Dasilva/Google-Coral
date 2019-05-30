@@ -122,7 +122,7 @@ def render_gen(args):
             
             inference_time = time.monotonic() - start
             
-            results = (labels[i], score) for i, score in results
+            results = [(labels[i], score) for i, score in results]
             # b =  [(score) for i, score in results]
             b =  [int(score) for i, score in results]
             a = results
