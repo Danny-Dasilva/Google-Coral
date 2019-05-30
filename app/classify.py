@@ -132,10 +132,7 @@ def render_gen(args):
 
             title = titles[engine]
             output = overlay(title, results, inference_time, inference_rate, layout)
-            if ( a < b ):
-                print(a)
-            else:
-                print("Not good enough", a)
+            print(type(a))
         else:
             output = None
 
