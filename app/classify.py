@@ -14,9 +14,9 @@ import logging
 
 from edgetpu.classification.engine import ClassificationEngine
 
-from . import svg
-from . import utils
-from .apps import run_app
+import svg
+import utils
+from apps import run_app
 
 logger = logging.getLogger(__name__)
 
