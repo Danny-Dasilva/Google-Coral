@@ -124,7 +124,7 @@ def render_gen(args):
             
             results = [(labels[i], score) for i, score in results]
             # b =  [(score) for i, score in results]
-            b =  [(score) for score in results]
+            b = score
             a = results
             
             results = acc.send(results)
@@ -134,7 +134,7 @@ def render_gen(args):
 
             title = titles[engine]
             output = overlay(title, results, inference_time, inference_rate, layout)
-            print(a)
+            # print(a)
             print(b)
             
         else:
