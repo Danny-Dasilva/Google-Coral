@@ -124,6 +124,8 @@ def render_gen(args):
             
             results = [(labels[i], score) for i, score in results]
             # b =  [(score) for i, score in results]
+            for i, score in results:
+                score = score
             b = score
             a = results
             
