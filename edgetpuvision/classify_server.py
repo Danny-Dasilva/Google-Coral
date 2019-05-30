@@ -7,7 +7,7 @@
 #   --labels ${TEST_DATA}/inat_bird_labels.txt
 
 from edgetpuvision.apps import run_server
-from edgetpuvision.classify import add_render_gen_args, render_gen, print_results
+from edgetpuvision.classify import add_render_gen_args, render_gen
 
 def main():
     run_server(add_render_gen_args, render_gen)

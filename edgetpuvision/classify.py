@@ -86,11 +86,11 @@ def accumulator(size, top_k):
 
 def print_results(inference_rate, results):
     print('\nInference (rate=%.2f fps):' % inference_rate)
-    print('\nInference (rate=%.2f fps):' % inference_rate)
+    
     
     for label, score in results:
         print('  %s, score=%.2f' % (label, score))
-        print('  %s, score=%.2f' % (label, score))
+        
 
 def render_gen(args):
     acc = accumulator(size=args.window, top_k=args.top_k)
@@ -144,7 +144,7 @@ def add_render_gen_args(parser):
                         help='label file path')
     parser.add_argument('--window', type=int, default=10,
                         help='number of frames to accumulate inference results')
-    parser.add_argument('--top_k', type=int, default=3,
+    parser.add_argument('--top_k', type=int, default=2,
                         help='number of classes with highest score to display')
     parser.add_argument('--threshold', type=float, default=0.1,
                         help='class score threshold')
