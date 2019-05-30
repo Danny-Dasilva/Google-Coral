@@ -140,7 +140,7 @@ def render_gen(args):
             if b > .21:
                 print(a, "threshold")
             else:
-                print("threshold not met")
+                print(a, "threshold not met")
             
         else:
             output = None
