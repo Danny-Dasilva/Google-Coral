@@ -126,7 +126,7 @@ def render_gen(args):
             # b =  [(score) for i, score in results]
             for i, score in results:
                 score = score
-            b = score
+            b = score.astype(int)
             a = results
             
             results = acc.send(results)
@@ -137,7 +137,10 @@ def render_gen(args):
             title = titles[engine]
             output = overlay(title, results, inference_time, inference_rate, layout)
             # print(a)
-            print(type(b.astype(int)))
+            if b > .21:
+                print(a, "threshold")
+            else:
+                ("threshold not met")
             
         else:
             output = None
