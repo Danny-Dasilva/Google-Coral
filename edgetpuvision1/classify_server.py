@@ -6,8 +6,8 @@
 #   --model ${TEST_DATA}/mobilenet_v2_1.0_224_inat_bird_quant.tflite \
 #   --labels ${TEST_DATA}/inat_bird_labels.txt
 
-from edgetpuvision.apps import run_server
-from edgetpuvision.classify import add_render_gen_args, render_gen
+from edgetpuvision1.apps import run_server
+from edgetpuvision1.classify import add_render_gen_args, render_gen
 
 
 def main():
