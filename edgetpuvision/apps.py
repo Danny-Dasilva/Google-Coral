@@ -26,7 +26,7 @@ def run_server(add_render_gen_args, render_gen):
     args = parser.parse_args()
 
     gen = render_gen(args)
-    print("gen", gen)
+    
     camera = make_camera(args.source, next(gen), args.loop)
     assert camera is not None
 

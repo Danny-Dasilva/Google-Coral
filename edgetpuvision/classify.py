@@ -103,25 +103,25 @@ def render_gen(args):
 
     labels = utils.load_labels(args.labels)
     draw_overlay = True
-    print(labels)
+    
 
     yield utils.input_image_size(engine)
 
     output = None
     while True:
         tensor, layout, command = (yield output)
-        print(labels)
+        
         inference_rate = next(fps_counter)
         if draw_overlay:
             start = time.monotonic()
             results = engine.ClassifyWithInputTensor(tensor, threshold=args.threshold, top_k=args.top_k)
-            print(results)
+            
             inference_time = time.monotonic() - start
 
             results = [(labels[i], score) for i, score in results]
-            print(results)
+            
             results = acc.send(results)
-            print(results)
+            
             if args.print:
                 print_results(inference_rate, results)
 
