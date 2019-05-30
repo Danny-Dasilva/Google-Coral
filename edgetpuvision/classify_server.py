@@ -8,10 +8,9 @@
 
 from edgetpuvision.apps import run_server
 from edgetpuvision.classify import add_render_gen_args, render_gen
-
+print("as;dgflkjbhglkjsadfbglkjabsdfdfldgkjbasfdlkjbg")
 def main():
     run_server(add_render_gen_args, render_gen)
-    print("as;dgflkjbhglkjsadfbglkjabsdfdfldgkjbasfdlkjbg")
     
 
 if __name__ == '__main__':
