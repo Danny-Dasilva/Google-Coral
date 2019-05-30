@@ -137,7 +137,7 @@ def render_gen(args):
             title = titles[engine]
             output = overlay(title, results, inference_time, inference_rate, layout)
             # print(a)
-            if b > .21:
+            if b > 0.21:
                 print(a, "threshold")
             else:
                 print(a, "threshold not met")
