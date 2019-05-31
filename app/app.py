@@ -1,7 +1,7 @@
 from flask import Flask
 from apps import run_server
 from classify import add_render_gen_args, render_gen
-import thread
+import _thread as thread
 
 app = Flask(__name__)
 
