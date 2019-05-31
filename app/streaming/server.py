@@ -660,11 +660,13 @@ class WsProtoClient(ProtoClient):
             return False
 
         if request.command == 'GET':
+            
             content, content_type = _read_asset(request.path)
             if content is None:
                 self._queue_message(_http_not_found())
             else:
                 self._queue_message(_http_ok(content, content_type))
+                print(content, content_type)
             self._queue_message(None)
             return True
 
