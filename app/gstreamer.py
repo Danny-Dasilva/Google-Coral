@@ -115,7 +115,7 @@ def Worker(process, maxsize=0):
 
 def save_frame(red ,rgb, size, overlay=None, ext='png'):
 
-    print(red.decode('utf-8'))
+    print(red.frombytes)
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
     #img_pth + 
@@ -205,7 +205,6 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
             red = "3333333"
-            red.encode('utf-8').strip()
             save_frame = True
 
       
