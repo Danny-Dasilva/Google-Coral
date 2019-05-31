@@ -88,12 +88,13 @@ def _asset_path(path):
         path  = 'index.html'
     elif path[0] == '/':
         path = path[1:]
+
     if path == '/test':
-        value = os.environ.get('SERVER_TEST_HTML')
+        value = os.environ.get('SERVER_INDEX_HTML')
         if value is not None:
             return value
         path  = 'test.html'
-    elif path[0] == '/':
+    elif path[0] == '/test':
         path = path[1:]
 
     asset_path = os.path.abspath(os.path.join(BASE_PATH, path))
