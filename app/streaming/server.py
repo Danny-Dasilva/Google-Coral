@@ -88,6 +88,13 @@ def _asset_path(path):
         path  = 'index.html'
     elif path[0] == '/':
         path = path[1:]
+    if path == '/test':
+        value = os.environ.get('SERVER_TEST_HTML')
+        if value is not None:
+            return value
+        path  = 'test.html'
+    elif path[0] == '/':
+        path = path[1:]
 
     asset_path = os.path.abspath(os.path.join(BASE_PATH, path))
     if os.path.commonpath((BASE_PATH, asset_path)) != BASE_PATH:
@@ -666,7 +673,6 @@ class WsProtoClient(ProtoClient):
                 self._queue_message(_http_not_found())
             else:
                 self._queue_message(_http_ok(content, content_type))
-                print(content, content_type)
             self._queue_message(None)
             return True
 
