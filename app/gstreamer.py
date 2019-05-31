@@ -224,6 +224,9 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
     with pull_sample(sink) as (sample, data):
         custom_command = None
         save_frame = False
+        save_frame_1 = False
+        save_frame_2 = False
+
 
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
@@ -249,9 +252,9 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
 
         if save_frame:
             images.put((data, layout.inference_size, svg))
-        elif save_frame_1:
+        if save_frame_1:
             images.put((data, layout.inference_size, svg))
-        elif save_frame_2:
+        if save_frame_2:
             images.put((data, layout.inference_size, svg))
 
     return Gst.FlowReturn.OK
