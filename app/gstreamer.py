@@ -249,7 +249,10 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
 
         if save_frame:
             images.put((data, layout.inference_size, svg))
-        
+        elif save_frame_1:
+            images.put((data, layout.inference_size, svg))
+        elif save_frame_2:
+            images.put((data, layout.inference_size, svg))
 
     return Gst.FlowReturn.OK
 
