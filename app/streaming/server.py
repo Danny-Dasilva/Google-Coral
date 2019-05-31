@@ -89,7 +89,7 @@ def _asset_path(path):
     elif path[0] == '/2':
         path = path[1:]
 
-    if path == '/1':
+    elif path == '/1':
         print("666666")
         print("666666")
         print("666666")
