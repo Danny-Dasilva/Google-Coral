@@ -115,7 +115,7 @@ def Worker(process, maxsize=0):
 
 def save_frame(red ,rgb, size, overlay=None, ext='png'):
 
-    print(str(red, 'utf-8'))
+    print(str( red )[2:-1]
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
     #img_pth + 
