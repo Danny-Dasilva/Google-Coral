@@ -218,8 +218,6 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
             save_frame = True
         if command == COMMAND_SAVE_FRAME_1:
             save_frame_1 = True
-        if command == COMMAND_SAVE_FRAME_2:
-            save_frame_2 = True
         elif command == COMMAND_PRINT_INFO:
             print('Timestamp: %.2f' % time.monotonic())
             print('Render size: %d x %d' % layout.render_size)
