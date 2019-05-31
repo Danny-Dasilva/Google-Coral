@@ -86,10 +86,13 @@ def _asset_path(path):
         if value is not None:
             return value
         path  = 'index.html'
-    elif path[0] == '/0':
+    elif path[0] == '/':
         print(path, "path111111")
         path = path[1:]
         print(path, "path")
+        
+    if path == '/1':
+        print("88888888888888888888888888888888888888888888888888888888888")
 
     
 
