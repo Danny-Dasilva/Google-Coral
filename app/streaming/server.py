@@ -414,6 +414,7 @@ class Client:
 
     def _send_command(self, command):
         self._commands.put((self, command))
+        print("command", command)
 
     def _queue_message(self, message, replace_last=False):
         dropped = self._tx_q.put(message, replace_last)
@@ -443,7 +444,6 @@ class Client:
                 if message is None:
                     break
                 self._handle_message(message)
-                print("messgae", message)
             self._logger.info('Rx thread finished')
         except Exception as e:
             self._logger.warning('Rx thread failed: %s', e)
@@ -666,8 +666,10 @@ class WsProtoClient(ProtoClient):
             content, content_type = _read_asset(request.path)
             if content is None:
                 self._queue_message(_http_not_found())
+                print("content is none")
             else:
                 self._queue_message(_http_ok(content, content_type))
+                print("content is none queue message")
             self._queue_message(None)
             return True
 
