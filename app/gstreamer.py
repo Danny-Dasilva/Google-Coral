@@ -115,7 +115,7 @@ def Worker(process, maxsize=0):
 
 def save_frame(red ,rgb, size, overlay=None, ext='png'):
 
-    with open("encoding.txt", 'w') as f:
+    with open("encoding.txt", 'wb') as f:
             f.write(red)
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
