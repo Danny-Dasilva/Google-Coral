@@ -112,12 +112,12 @@ def Worker(process, maxsize=0):
 def save_frame(rgb, size, overlay=None, ext='png'):
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
-    name = 'immage_folder/img-%s.%s' % (tag, ext)
+    name = 'image_folder/img-%s.%s' % (tag, ext)
     img.save(name)
     print('Frame saved as "%s"' % name)
     
     if overlay:
-        name = 'img-%s.svg' % tag
+        name = 'image_folder/img-%s.svg' % tag
         with open(name, 'w') as f:
             f.write(overlay)
         print('Overlay saved as "%s"' % name)
