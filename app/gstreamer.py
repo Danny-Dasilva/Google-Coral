@@ -205,6 +205,7 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
             red = "3333333"
+            red.encode('utf-8').strip()
             save_frame = True
 
       
