@@ -113,11 +113,8 @@ def Worker(process, maxsize=0):
         commands.put(None)
         thread.join()
 
-def save_frame(get_command, rgb, size, overlay=None, ext='png'):
+def save_frame(rgb, size, overlay=None, ext='png'):
     
-    command = get_command()
-    if command == COMMAND_SAVE_FRAME:
-        print("AHHHHHHHHHHHHHHHHHHHH")
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
     #img_pth + 
@@ -226,6 +223,9 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
 
         if save_frame:
             images.put((data, layout.inference_size, svg))
+            print(data)
+            print(layout.inference_size)
+            print(svg)
 
         
 
