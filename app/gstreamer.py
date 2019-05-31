@@ -113,7 +113,10 @@ def Worker(process, maxsize=0):
         commands.put(None)
         thread.join()
 
-def save_frame(rgb, size, overlay=None, ext='png'):
+def save_frame(rgb, size, overlay=None, ext='png', get_command):
+    command = get_command()
+    if command == COMMAND_SAVE_FRAME:
+            img_pth="image_folder/object1"
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
 
@@ -200,13 +203,8 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
         custom_command = None
         save_frame = False
         
-        img_pth = 'image_folder/'
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
-            img_pth = 'image_folder/object_1/'
-            save_frame = True
-        if command == COMMAND_SAVE_FRAME:
-            img_pth = 'image_folder/object_2/'
             save_frame = True
 
       
