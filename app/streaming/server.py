@@ -86,29 +86,12 @@ def _asset_path(path):
         if value is not None:
             return value
         path  = 'index.html'
-    
     elif path[0] == '/':
         path = path[1:]
-    print(path[0])
-    
-       
-
-    if path == '/1/':
-        value = os.environ.get('SERVER_INDEX_HTML')
-        if value is not None:
-            return value
-        path  = 'index.html'
-    elif path[0] == '/1/':
-        print(path, "path111111")
-        path = path[1:]
-        print(path, "path")
-
-    
 
     asset_path = os.path.abspath(os.path.join(BASE_PATH, path))
     if os.path.commonpath((BASE_PATH, asset_path)) != BASE_PATH:
         return None
-    print("asset path",asset_path)
 
     return asset_path
 
@@ -445,6 +428,7 @@ class Client:
                 if message is None:
                     break
                 self._send_message(message)
+                print("message", message)
             self._logger.info('Tx thread finished')
         except Exception as e:
             self._logger.warning('Tx thread failed: %s', e)
@@ -459,6 +443,7 @@ class Client:
                 if message is None:
                     break
                 self._handle_message(message)
+                print("messgae", message)
             self._logger.info('Rx thread finished')
         except Exception as e:
             self._logger.warning('Rx thread failed: %s', e)
