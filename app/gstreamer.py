@@ -195,14 +195,18 @@ def on_bus_message(bus, message, pipeline, loop):
         err, debug = message.parse_error()
         sys.stderr.write('Error: %s: %s\n' % (err, debug))
         Gtk.main_quit()
+def new_function():
+    print("functional asl;jkdhbaslkjdhblaskjbdvlkhasbgdklsablkdjbaslkdbas")
 
 def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
     with pull_sample(sink) as (sample, data):
         custom_command = None
         save_frame = False
+        new_function = False
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
             save_frame = True
+            new_function = True
 
       
         
