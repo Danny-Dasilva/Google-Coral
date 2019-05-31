@@ -24,7 +24,7 @@ gi.require_version('GstPbutils', '1.0')
 from gi.repository import GLib, GObject, Gst, GstBase, Gtk
 
 
-global imgpath
+global ls
 
 GObject.threads_init()
 Gst.init([])
@@ -200,10 +200,10 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
     with pull_sample(sink) as (sample, data):
         custom_command = None
         save_frame = False
-        
+        imgpath = False
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
-            imgpath = "fucking holy mole"
+            imgpath = True
             save_frame = True
 
       
@@ -225,6 +225,9 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
 
         if save_frame:
             images.put((data, layout.inference_size, svg))
+
+        if imgpath:
+            ls = "rational string"
         
 
     return Gst.FlowReturn.OK
