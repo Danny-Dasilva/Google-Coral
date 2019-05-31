@@ -651,9 +651,7 @@ class WsProtoClient(ProtoClient):
 
     def _process_web_request(self):
         request = _read_http_request(self._socket)
-        print("request1", request)
         request = HTTPRequest(request)
-        print("request2", request)
         connection = request.headers['Connection']
         upgrade = request.headers['Upgrade']
         if 'Upgrade' in connection and upgrade == 'websocket':
@@ -667,6 +665,8 @@ class WsProtoClient(ProtoClient):
             content, content_type = _read_asset(request.path)
             
             print("request4", request.path)
+            if request.path == '/9':
+                print("66666666666666666")
             if content is None:
                 self._queue_message(_http_not_found())
                 
