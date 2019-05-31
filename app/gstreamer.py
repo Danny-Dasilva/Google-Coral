@@ -36,7 +36,6 @@ from pipelines import *
 
 COMMAND_SAVE_FRAME = ' '
 COMMAND_SAVE_FRAME_1 = '1'
-COMMAND_SAVE_FRAME_2 = '2'
 COMMAND_PRINT_INFO = 'p'
 COMMAND_QUIT       = 'q'
 WINDOW_TITLE       = 'Coral'
@@ -129,32 +128,18 @@ def save_frame(rgb, size, overlay=None, ext='png'):
 def save_frame_1(rgb, size, overlay=None, ext='png'):
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
-    name = 'image_folder/object_1/img-%s.%s' % (tag, ext)
-    img.save(name)
-    print('Frame saved as "%s"' % name)
+    name_1 = 'image_folder/object_1/img-%s.%s' % (tag, ext)
+    img.save(name_1)
+    print('Frame 1 saved as "%s"' % name_1)
     
     if overlay:
         name = 'overlay/img-%s.svg' % tag
         with open(name, 'w') as f:
             f.write(overlay)
-        print('Overlay saved as "%s"' % name)
+        print('Overlay 1 saved as "%s"' % name)
     
     print('Overlay saved as "%s"' % name)
-# second folder
-def save_frame_2(rgb, size, overlay=None, ext='png'):
-    tag = '%010d' % int(time.monotonic() * 1000)
-    img = Image.frombytes('RGB', size, rgb, 'raw')
-    name = 'image_folder/object_2/img-%s.%s' % (tag, ext)
-    img.save(name)
-    print('Frame saved as "%s"' % name)
-    
-    if overlay:
-        name = 'overlay/img-%s.svg' % tag
-        with open(name, 'w') as f:
-            f.write(overlay)
-        print('Overlay saved as "%s"' % name)
-    
-    print('Overlay saved as "%s"' % name)
+
 
 Layout = collections.namedtuple('Layout', ('size', 'window', 'inference_size', 'render_size'))
 
