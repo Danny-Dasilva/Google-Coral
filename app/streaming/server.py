@@ -86,16 +86,18 @@ def _asset_path(path):
         if value is not None:
             return value
         path  = 'index.html'
+    print(path[0])
+    print(path[1])
     elif path[0] == '/':
         path = path[1:]
        
 
-    if path == '/1':
+    if path == '/1/':
         value = os.environ.get('SERVER_INDEX_HTML')
         if value is not None:
             return value
         path  = 'index.html'
-    elif path[0] == '/1':
+    elif path[1] == '/1/':
         print(path, "path111111")
         path = path[1:]
         print(path, "path")
