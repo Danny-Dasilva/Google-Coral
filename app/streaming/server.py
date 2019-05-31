@@ -414,7 +414,6 @@ class Client:
 
     def _send_command(self, command):
         self._commands.put((self, command))
-        print("command", command)
 
     def _queue_message(self, message, replace_last=False):
         dropped = self._tx_q.put(message, replace_last)
@@ -666,10 +665,10 @@ class WsProtoClient(ProtoClient):
             content, content_type = _read_asset(request.path)
             if content is None:
                 self._queue_message(_http_not_found())
-                print("content is none")
+                print("content is none", content)
             else:
                 self._queue_message(_http_ok(content, content_type))
-                print("content is none queue message")
+                print("content is none queue message", content)
             self._queue_message(None)
             return True
 
