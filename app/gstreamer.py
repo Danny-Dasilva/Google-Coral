@@ -204,7 +204,7 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
         
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
-            red = "6666666666666666666666666"
+            red = True 
             save_frame = True
 
       
