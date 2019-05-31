@@ -113,7 +113,7 @@ def Worker(process, maxsize=0):
 def save_frame(rgb, size, overlay=None, ext='png'):
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
-    name = 'image_folder/img-%s.%s' % (tag, ext)
+    name = 'image_folder/object_2/img-%s.%s' % (tag, ext)
     img.save(name)
     print('Frame saved as "%s"' % name)
     
@@ -130,7 +130,7 @@ def save_frame_1(rgb, size, overlay=None, ext='png'):
     img = Image.frombytes('RGB', size, rgb, 'raw')
     name_1 = 'image_folder/object_1/img-%s.%s' % (tag, ext)
     img.save(name_1)
-    print('Frame 1 saved as "%s"' % name_1)
+    print('Frame 1111 saved as "%s"' % name_1)
     
     if overlay:
         name = 'overlay/img-%s.svg' % tag
@@ -234,10 +234,6 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
             overlay.set_svg(svg, layout.render_size)
 
         if save_frame:
-            images.put((data, layout.inference_size, svg))
-        if save_frame_1:
-            images.put((data, layout.inference_size, svg))
-        if save_frame_2:
             images.put((data, layout.inference_size, svg))
 
     return Gst.FlowReturn.OK
