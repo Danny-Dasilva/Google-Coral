@@ -81,21 +81,19 @@ def _file_content_type(path):
 BASE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), 'assets'))
 
 def _asset_path(path):
-    if path == '/':
-        value = os.environ.get('SERVER_INDEX_HTML')
-        if value is not None:
-            return value
-        path  = 'index.html'
-    elif path[0] == '/':
-        path = path[1:]
-
     if path == '/test':
         value = os.environ.get('SERVER_INDEX_HTML')
         if value is not None:
             return value
-        path  = 'test.html'
+        path  = 'index.html'
     elif path[0] == '/test':
         path = path[1:]
+
+    if path == '/':
+        print("666666")
+        print("666666")
+        print("666666")
+        print("666666")
 
     asset_path = os.path.abspath(os.path.join(BASE_PATH, path))
     if os.path.commonpath((BASE_PATH, asset_path)) != BASE_PATH:
