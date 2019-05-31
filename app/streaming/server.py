@@ -86,15 +86,12 @@ def _asset_path(path):
         if value is not None:
             return value
         path  = 'index.html'
-    elif path[0] == '/1':
+    elif path[0] == '/0':
+        print(path, "path111111")
         path = path[1:]
         print(path, "path")
 
-    if path == '/1':
-        print("666666")
-        print("666666")
-        print("666666")
-        print("666666")
+    
 
     asset_path = os.path.abspath(os.path.join(BASE_PATH, path))
     if os.path.commonpath((BASE_PATH, asset_path)) != BASE_PATH:
