@@ -115,11 +115,14 @@ def save_frame(rgb, size, overlay=None, ext='png'):
     name = 'img-%s.%s' % (tag, ext)
     img.save(name)
     print('Frame saved as "%s"' % name)
+    
     if overlay:
         name = 'img-%s.svg' % tag
         with open(name, 'w') as f:
             f.write(overlay)
         print('Overlay saved as "%s"' % name)
+    
+    print('Overlay saved as "%s"' % name)
 
 Layout = collections.namedtuple('Layout', ('size', 'window', 'inference_size', 'render_size'))
 
