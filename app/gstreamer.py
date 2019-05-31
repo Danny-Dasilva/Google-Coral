@@ -24,7 +24,7 @@ gi.require_version('GstPbutils', '1.0')
 from gi.repository import GLib, GObject, Gst, GstBase, Gtk
 
 
-
+global imgpath
 
 GObject.threads_init()
 Gst.init([])
@@ -113,9 +113,8 @@ def Worker(process, maxsize=0):
         commands.put(None)
         thread.join()
 
-def save_frame(red ,rgb, size, overlay=None, ext='png'):
-
-    print(red)
+def save_frame(rgb, size, overlay=None, ext='png'):
+    print(imgpath)
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
     #img_pth + 
@@ -204,7 +203,7 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
         
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
-            red = "hello how are you doing"
+            imgpath = "fucking holy mole"
             save_frame = True
 
       
