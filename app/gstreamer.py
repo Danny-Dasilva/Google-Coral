@@ -23,6 +23,10 @@ gi.require_version('GstBase', '1.0')
 gi.require_version('GstPbutils', '1.0')
 from gi.repository import GLib, GObject, Gst, GstBase, Gtk
 
+
+global img_pth
+
+img_pth = 'image_folder/'
 GObject.threads_init()
 Gst.init([])
 Gtk.init([])
@@ -110,7 +114,7 @@ def Worker(process, maxsize=0):
         commands.put(None)
         thread.join()
 
-def save_frame(rgb, size, overlay=None, ext='png', img_pth):
+def save_frame(rgb, size, overlay=None, ext='png'):
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
     name = img_pth + 'img-%s.%s' % (tag, ext)
