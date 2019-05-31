@@ -88,8 +88,9 @@ def _asset_path(path):
         path  = 'index.html'
     elif path[0] == '/':
         path = path[1:]
+        print(path, "path")
 
-    elif path == '/1':
+    if path == '/1':
         print("666666")
         print("666666")
         print("666666")
@@ -98,6 +99,7 @@ def _asset_path(path):
     asset_path = os.path.abspath(os.path.join(BASE_PATH, path))
     if os.path.commonpath((BASE_PATH, asset_path)) != BASE_PATH:
         return None
+    print("asset path",asset_path)
 
     return asset_path
 
