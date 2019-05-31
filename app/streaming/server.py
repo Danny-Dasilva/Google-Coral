@@ -90,7 +90,7 @@ def _asset_path(path):
     elif path[0] == '/':
         path = path[1:]
     print(path[0])
-    print(path[1])
+    
        
 
     if path == '/1/':
@@ -98,7 +98,7 @@ def _asset_path(path):
         if value is not None:
             return value
         path  = 'index.html'
-    elif path[1] == '/1/':
+    elif path[0] == '/1/':
         print(path, "path111111")
         path = path[1:]
         print(path, "path")
