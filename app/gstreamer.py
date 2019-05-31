@@ -112,7 +112,7 @@ def Worker(process, maxsize=0):
 def save_frame(rgb, size, overlay=None, ext='png'):
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
-    name = 'img-%s.%s' % (tag, ext)
+    name = 'immage_folder/img-%s.%s' % (tag, ext)
     img.save(name)
     print('Frame saved as "%s"' % name)
     
