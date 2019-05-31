@@ -665,6 +665,7 @@ class WsProtoClient(ProtoClient):
             content, content_type = _read_asset(request.path)
             
             print("request4", request.path)
+            
             if request.path == '/9':
                 print("66666666666666666")
             if content is None:
@@ -674,6 +675,7 @@ class WsProtoClient(ProtoClient):
                 self._queue_message(_http_ok(content, content_type))
             self._queue_message(None)
             return True
+
 
         raise Exception('Unsupported request')
 

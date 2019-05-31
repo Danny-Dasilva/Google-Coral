@@ -17,11 +17,18 @@
   <img src="coral_logo.png" width="100em" style="padding-bottom:10px"/>
   <img src="coral_logo.png" width="100em" style="padding-bottom:10px"/>
   <img src="coral_logo.png" width="100em" style="padding-bottom:10px"/>
-  <button href="/9"></button>
+  <button id="buttonId"></button>
 
   <div id="container"></div>
   <p></p>
 
 </body>
 
+<script>
+$("#buttonId").click(function(){
+    $.get(location.href + "/9", (data, status) => {
+        console.log(data + " " + status);
+    });
+});
+</script>
 </html>
