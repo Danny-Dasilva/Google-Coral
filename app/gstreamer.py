@@ -336,7 +336,7 @@ def run_pipeline(pipeline, layout, loop, render_overlay, display, handle_sigint=
         window.connect('delete-event', Gtk.main_quit)
         window.show_all()
 
-    with Worker(save_frame) as images, Commands() as get_command:
+    with Worker(save_frame_1) as images, Commands() as get_command:
         signals = {'appsink':
             {'new-sample': functools.partial(on_new_sample,
                 render_overlay=functools.partial(render_overlay, layout=layout),
