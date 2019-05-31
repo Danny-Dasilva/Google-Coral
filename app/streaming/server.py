@@ -666,7 +666,7 @@ class WsProtoClient(ProtoClient):
             
             content, content_type = _read_asset(request.path)
             
-            print("request2", request.path)
+            print("request4", request.path)
             if content is None:
                 self._queue_message(_http_not_found())
                 
