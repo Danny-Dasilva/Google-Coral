@@ -428,7 +428,7 @@ class Client:
                 if message is None:
                     break
                 self._send_message(message)
-                print("message", message)
+                
             self._logger.info('Tx thread finished')
         except Exception as e:
             self._logger.warning('Tx thread failed: %s', e)
