@@ -15,10 +15,14 @@
   <img src="coral_logo.png" width="100em" style="padding-bottom:10px"/>
   <img src="coral_logo.png" width="100em" style="padding-bottom:10px"/>
   <img src="coral_logo.png" width="100em" style="padding-bottom:10px"/>
-  <button  ping="192.168.100.2:4664/9"></button>
+  <button id="mydiv" ping="/98"></button>
 
   <div id="container"></div>
   <p></p>
 
 </body>
+<script>
+  $("#mydiv")
+      .html('<object data="/9"/>');
+</script>
 </html>
