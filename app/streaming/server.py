@@ -651,7 +651,9 @@ class WsProtoClient(ProtoClient):
 
     def _process_web_request(self):
         request = _read_http_request(self._socket)
+        print("request1", request)
         request = HTTPRequest(request)
+        print("request2", request)
         connection = request.headers['Connection']
         upgrade = request.headers['Upgrade']
         if 'Upgrade' in connection and upgrade == 'websocket':
@@ -663,12 +665,13 @@ class WsProtoClient(ProtoClient):
         if request.command == 'GET':
             
             content, content_type = _read_asset(request.path)
+            
+            print("request2", request.path)
             if content is None:
                 self._queue_message(_http_not_found())
-                print("content is none", content)
+                
             else:
                 self._queue_message(_http_ok(content, content_type))
-                print("content is none queue message", content)
             self._queue_message(None)
             return True
 
