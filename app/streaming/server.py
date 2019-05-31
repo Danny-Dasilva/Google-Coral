@@ -81,15 +81,15 @@ def _file_content_type(path):
 BASE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), 'assets'))
 
 def _asset_path(path):
-    if path == '/':
+    if path == '/2':
         value = os.environ.get('SERVER_INDEX_HTML')
         if value is not None:
             return value
         path  = 'index.html'
-    elif path[0] == '/':
+    elif path[0] == '/2':
         path = path[1:]
 
-    if path == '/test':
+    if path == '/1':
         print("666666")
         print("666666")
         print("666666")
