@@ -5,6 +5,7 @@ import fcntl
 import functools
 import os
 import pathlib
+import shutil
 import queue
 import signal
 import sys
@@ -130,8 +131,8 @@ def save_frame(del_files, cmd, rgb, size, overlay=None, ext='png'):
         img.save(name)
     print('Frame saved as "%s"' % name)
     if del_files == 1:
-        os.rmdir("image_folder/object_1/") 
-        os.rmdir("image_folder/object_2/") 
+        shutil.rmtree("image_folder/object_1/") 
+        shutil.rmtree("image_folder/object_2/") 
         os.mkdir("image_folder/object_1/")
         os.mkdir("image_folder/object_2/")
         print("FILES_DELETED")
