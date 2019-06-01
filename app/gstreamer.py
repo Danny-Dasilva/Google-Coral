@@ -219,6 +219,7 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
             save_frame = True
         
         if command == DELETEFILES:
+            cmd = "image_folder/object_1/"
             del_files = "1"
             save_frame = True
         
