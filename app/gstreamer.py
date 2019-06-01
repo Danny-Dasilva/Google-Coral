@@ -39,6 +39,7 @@ from pipelines import *
 
 COMMAND_SAVE_FRAME = ' '
 COMMAND_SAVE_FRAME_1 = '1'
+DELETEFILES = 'd'
 COMMAND_PRINT_INFO = 'p'
 COMMAND_QUIT       = 'q'
 WINDOW_TITLE       = 'Coral'
@@ -113,7 +114,7 @@ def Worker(process, maxsize=0):
         commands.put(None)
         thread.join()
 
-def save_frame(cmd, rgb, size, overlay=None, ext='png'):
+def save_frame(del_files, cmd, rgb, size, overlay=None, ext='png'):
     print(cmd)
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
@@ -121,11 +122,18 @@ def save_frame(cmd, rgb, size, overlay=None, ext='png'):
   
     name = img_pth + 'img-%s.%s' % (tag, ext)
     img.save(name)
+    # check directory and save file 
     list = os.listdir(img_pth) # dir is your directory path
     number_files = len(list)
     print(number_files)
+    if number_files <= 200:
+        img.save(name)
     print('Frame saved as "%s"' % name)
-    
+    if del_files = 1:
+        os.rmdir("image_folder/object_1/") 
+        os.rmdir("image_folder/object_2/") 
+        os.mkdir("image_folder/object_1/")
+        os.mkdir("image_folder/object_2/")
     if overlay:
         name = 'overlay/img-%s.svg' % tag
         with open(name, 'w') as f:
@@ -204,12 +212,16 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
     with pull_sample(sink) as (sample, data):
         custom_command = None
         save_frame = False
-
+        del_files = "0"
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
             cmd = "image_folder/object_1/"
             save_frame = True
-
+        
+        if command == DELETEFILES:
+            del_files = "1"
+            save_frame = True
+        
         if command == COMMAND_SAVE_FRAME_1:
             cmd = "image_folder/object_2/"
             save_frame = True
@@ -230,7 +242,7 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
             overlay.set_svg(svg, layout.render_size)
 
         if save_frame:
-            images.put((cmd, data, layout.inference_size, svg))
+            images.put((del_files, cmd, data, layout.inference_size, svg))
          
         
         
