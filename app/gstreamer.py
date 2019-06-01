@@ -127,7 +127,7 @@ def save_frame(del_files, cmd, rgb, size, overlay=None, ext='png'):
     list = os.listdir(img_pth) # dir is your directory path
     number_files = len(list)
     print(number_files)
-    if number_files <= 200:
+    if number_files <= 600:
         img.save(name)
     print('Frame saved as "%s"' % name)
 
