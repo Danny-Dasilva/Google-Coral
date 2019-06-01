@@ -134,6 +134,7 @@ def save_frame(del_files, cmd, rgb, size, overlay=None, ext='png'):
         os.rmdir("image_folder/object_2/") 
         os.mkdir("image_folder/object_1/")
         os.mkdir("image_folder/object_2/")
+        print("FILES_DELETED")
     if overlay:
         name = 'overlay/img-%s.svg' % tag
         with open(name, 'w') as f:
@@ -212,7 +213,7 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
     with pull_sample(sink) as (sample, data):
         custom_command = None
         save_frame = False
-        del_files = "0"
+        del_files = 0
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
             cmd = "image_folder/object_1/"
@@ -220,7 +221,7 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
         
         if command == DELETEFILES:
             cmd = "image_folder/object_1/"
-            del_files = "1"
+            del_files = 1
             save_frame = True
         
         if command == COMMAND_SAVE_FRAME_1:
