@@ -195,22 +195,20 @@ def on_bus_message(bus, message, pipeline, loop):
         err, debug = message.parse_error()
         sys.stderr.write('Error: %s: %s\n' % (err, debug))
         Gtk.main_quit()
-def new_function():
-    print("functional asl;jkdhbaslkjdhblaskjbdvlkhasbgdklsablkdjbaslkdbas")
 
 def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
     with pull_sample(sink) as (sample, data):
         custom_command = None
         save_frame = False
-        new_function = False
+        
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
-            save_frame = True
             cmd = "testing"
+            save_frame = True
 
         if command == COMMAND_SAVE_FRAME_1:
-            save_frame = True
             cmd = "FUNCTIONAL"
+            save_frame = True
         
         elif command == COMMAND_PRINT_INFO:
             print('Timestamp: %.2f' % time.monotonic())
@@ -228,7 +226,7 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
             overlay.set_svg(svg, layout.render_size)
 
         if save_frame:
-            images.put((string, data, layout.inference_size, svg))
+            images.put((cmd, data, layout.inference_size, svg))
          
         
         
