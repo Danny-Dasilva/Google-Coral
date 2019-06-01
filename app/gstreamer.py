@@ -130,6 +130,8 @@ def save_frame(del_files, cmd, rgb, size, overlay=None, ext='png'):
     if number_files <= 200:
         img.save(name)
     print('Frame saved as "%s"' % name)
+
+    #deleting files command
     if del_files == 1:
         shutil.rmtree("image_folder/object_1/") 
         shutil.rmtree("image_folder/object_2/") 
