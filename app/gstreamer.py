@@ -117,8 +117,8 @@ def save_frame(cmd, rgb, size, overlay=None, ext='png'):
     print(cmd)
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
-    #img_pth + 
-    name = 'img-%s.%s' % (tag, ext)
+    img_pth = cmd
+    name = img_pth + 'img-%s.%s' % (tag, ext)
     img.save(name)
     print('Frame saved as "%s"' % name)
     
@@ -200,14 +200,14 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
     with pull_sample(sink) as (sample, data):
         custom_command = None
         save_frame = False
-        
+
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
-            cmd = "testing"
+            cmd = "image_folder/object_1/"
             save_frame = True
 
         if command == COMMAND_SAVE_FRAME_1:
-            cmd = "FUNCTIONAL"
+            cmd = "image_folder/object_2/"
             save_frame = True
         
         elif command == COMMAND_PRINT_INFO:
