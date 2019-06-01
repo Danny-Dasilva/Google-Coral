@@ -118,8 +118,12 @@ def save_frame(cmd, rgb, size, overlay=None, ext='png'):
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
     img_pth = cmd
+  
     name = img_pth + 'img-%s.%s' % (tag, ext)
     img.save(name)
+    list = os.listdir(name) # dir is your directory path
+    number_files = len(list)
+    print(number_files)
     print('Frame saved as "%s"' % name)
     
     if overlay:
