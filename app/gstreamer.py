@@ -113,8 +113,8 @@ def Worker(process, maxsize=0):
         commands.put(None)
         thread.join()
 
-def save_frame(string, rgb, size, overlay=None, ext='png'):
-    print(string)
+def save_frame(cmd, rgb, size, overlay=None, ext='png'):
+    print(cmd)
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
     #img_pth + 
@@ -206,9 +206,11 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
         command = get_command()
         if command == COMMAND_SAVE_FRAME:
             save_frame = True
-            new_function = True
+            cmd = "testing"
 
-      
+        if command == COMMAND_SAVE_FRAME_1:
+            save_frame = True
+            cmd = "FUNCTIONAL"
         
         elif command == COMMAND_PRINT_INFO:
             print('Timestamp: %.2f' % time.monotonic())
@@ -226,7 +228,6 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
             overlay.set_svg(svg, layout.render_size)
 
         if save_frame:
-            string = "testing"
             images.put((string, data, layout.inference_size, svg))
          
         
