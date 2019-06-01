@@ -114,7 +114,7 @@ def Worker(process, maxsize=0):
         thread.join()
 
 def save_frame(string, rgb, size, overlay=None, ext='png'):
-    print(string)
+    print(size)
     tag = '%010d' % int(time.monotonic() * 1000)
     img = Image.frombytes('RGB', size, rgb, 'raw')
     #img_pth + 
@@ -227,7 +227,7 @@ def on_new_sample(sink, pipeline, render_overlay, layout, images, get_command):
 
         if save_frame:
             string = "testing"
-            images.put((data, layout.inference_size, svg, string))
+            images.put((string, data, layout.inference_size, svg))
          
         
         
