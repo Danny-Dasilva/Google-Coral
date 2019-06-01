@@ -129,7 +129,7 @@ def save_frame(del_files, cmd, rgb, size, overlay=None, ext='png'):
     if number_files <= 200:
         img.save(name)
     print('Frame saved as "%s"' % name)
-    if del_files = 1:
+    if del_files = '1':
         os.rmdir("image_folder/object_1/") 
         os.rmdir("image_folder/object_2/") 
         os.mkdir("image_folder/object_1/")
