@@ -152,7 +152,9 @@ Layout = collections.namedtuple('Layout', ('size', 'window', 'inference_size', '
 
 def make_layout(inference_size, render_size):
     inference_size = Size(*inference_size)
+    print(inference_size)
     render_size = Size(*render_size)
+    print(render_size)
     size = min_outer_size(inference_size, render_size)
     window = center_inside(render_size, size)
     return Layout(size=size, window=window,
