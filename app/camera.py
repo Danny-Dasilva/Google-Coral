@@ -9,7 +9,8 @@ from gst import *
 class Camera:
     def __init__(self, render_size, inference_size, loop):
         self._layout = gstreamer.make_layout(inference_size, render_size)
-        print(self._layout)
+        print(inference_size)
+        print(render_size)
         self._loop = loop
         self._thread = None
         self.render_overlay = None
