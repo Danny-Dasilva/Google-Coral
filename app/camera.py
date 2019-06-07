@@ -15,6 +15,7 @@ class Camera:
 
     @property
     def resolution(self):
+        print(self._layout.render_size)
         return self._layout.render_size
 
     def request_key_frame(self):

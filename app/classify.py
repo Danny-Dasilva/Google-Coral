@@ -136,6 +136,9 @@ def render_gen(args):
 
             title = titles[engine]
             output = overlay(title, results, inference_time, inference_rate, layout)
+
+
+            # Confidence Values
             # print(a)
             # if b > 22:
             #     print(a, "Correct guess")
